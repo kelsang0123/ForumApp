@@ -1,9 +1,8 @@
 ﻿namespace Entities;
 
-public class Comment
+public class Moderator
 {
     public int Id { get; set; }
-    public string Body { get; set; }
+    public int SubforumId { get; set; }
     public int UserId { get; set; }
-    public int PostId { get; set; }
 }

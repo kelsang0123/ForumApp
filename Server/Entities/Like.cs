@@ -1,9 +1,9 @@
 ﻿namespace Entities;
 
-public class Comment
+public class Like
 {
     public int Id { get; set; }
-    public string Body { get; set; }
     public int UserId { get; set; }
     public int PostId { get; set; }
+    public Boolean IsLike { get; set; }
 }

@@ -7,4 +7,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\InMemoryRepository\InMemoryRepository.csproj" />
+    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UI\ManagePosts\" />
+    <Folder Include="UI\ManageUsers\" />
+  </ItemGroup>
+
 </Project>

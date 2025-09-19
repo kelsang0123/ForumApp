@@ -7,4 +7,6 @@ public class Post
     public string Body { get; set; }
     public int UserId { get; set; }
     public int SubforumId { get; set; }
+    public int commentId { get; set; }
+    public string commentBody{ get; set; }
 }

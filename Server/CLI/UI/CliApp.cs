@@ -4,6 +4,8 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using CLI.UI.ManageComments;
+using CLI.UI.ManagePosts;
 using CLI.UI.ManageUsers;
 using Entities;
 using InMemoryRepository;
@@ -27,19 +29,27 @@ public class CliApp
         bool exit = false;
         while (!exit)
         {
-            Console.WriteLine("Choose 1 to create new user.");
-            Console.WriteLine("Choose 2 to View all users.");
-            Console.WriteLine("Choose 3 to update a user details");
-            Console.WriteLine("Choose 4 to delete a user");
+            Console.WriteLine("Choose 1 to manage users");
+            Console.WriteLine("Choose 2 to manage posts");
+            Console.WriteLine("Choose 3 to manage comments");
+            Console.WriteLine("Choose 4 to exit");
             Console.WriteLine("Enter id:");
             string choice = Console.ReadLine();
             switch (choice)
             {
                 case "1":
-                    var createUserView = new CreateUserView(userRepository);
-                    await createUserView.AddUserAsync();
+                    ManageUsersView manageUsersView = new ManageUsersView(userRepository);
+                    manageUsersView.ShowUsersViewAsync();
                     break;
                 case "2":
+                    ManagePostsView managePostsView = new ManagePostsView(postRepository);
+                    managePostsView.ShowPostsViewAsync();
+                    break;
+                case "3":
+                    ManageCommentsView manageCommentsView = new ManageCommentsView(commentRepository);
+                    manageCommentsView.ShowCommentsViewAsync();
+                    break;
+                case "4":
                     exit = true;
                     break;
                 default:
@@ -47,6 +57,5 @@ public class CliApp
                     break;
             }
         }
-    }
-   
+    }  
 }

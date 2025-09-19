@@ -14,8 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\ManagePosts\" />
-    <Folder Include="UI\ManageUsers\" />
+    <Folder Include="UI\ManageAModerator\" />
+    <Folder Include="UI\ManageCommentLikes\" />
+    <Folder Include="UI\ManageSubforums\" />
   </ItemGroup>
 
 </Project>

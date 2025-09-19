@@ -5,6 +5,8 @@ namespace CLI.UI.ManagePosts;
 
 public class ManagePostsView
 {
+    private readonly IUserRepository userRepository;
+    private readonly ICommentRepository commentRepository;
     private readonly IPostRepository postRepository;
     public ManagePostsView(IPostRepository postRepository)
     {
@@ -20,7 +22,7 @@ public class ManagePostsView
             Console.WriteLine("Choose 3 to view a single post.");
             // Console.WriteLine("Choose 4 to update existing post.");
             // Console.WriteLine("Choose 5 to delete a post.");
-            Console.WriteLine("Choose y to proceed.");
+            Console.WriteLine("Choose y to main view.");
             string? choice = Console.ReadLine();
             switch(choice)
             {
@@ -36,7 +38,12 @@ public class ManagePostsView
                     SinglePostView singlePostView = new SinglePostView(postRepository);
                     singlePostView.ShowSinglePostView();
                     break;
+                case "y":
+                    CliApp cliApp = new CliApp(userRepository, postRepository, commentRepository);
+                    cliApp.StartAsync();
+                    break;
                 default:
+                    Console.WriteLine("Invalid choice!");
                     break;
             }
 

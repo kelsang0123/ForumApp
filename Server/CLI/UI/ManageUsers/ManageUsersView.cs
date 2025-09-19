@@ -6,6 +6,8 @@ namespace CLI.UI.ManageUsers;
 
 public class ManageUsersView
 {
+    private readonly IPostRepository postRepository;
+    private readonly ICommentRepository commentRepository;
     private readonly IUserRepository userRepository;
     public ManageUsersView(IUserRepository userRepository)
     {
@@ -20,7 +22,7 @@ public class ManageUsersView
         Console.WriteLine("Choose 2 to view Users.");
         Console.WriteLine("Choose 3 to delete a user by id.");
         Console.WriteLine("Choose 4 to update a user.");
-            Console.WriteLine("Choose 5 to proceed");
+            Console.WriteLine("Choose y to main view.");
         string? choice = Console.ReadLine();
             switch (choice)
             {
@@ -57,21 +59,12 @@ public class ManageUsersView
                         Console.WriteLine("user in the list is null!");
                     }
                     break;
-                case "5":
-                    Console.WriteLine("Enter y to proceed: ");
-                    string? confirmation = Console.ReadLine();
-                    if (confirmation == "y")
-                    {
-                        continue;
-                    }
-                    else if (confirmation != "y")
-                    {
-                        exit = true;
-                    }
+                case "y":
+                    CliApp cliApp = new CliApp(userRepository, postRepository, commentRepository);
+                    cliApp.StartAsync();
                     break;
                 default:
-                    Console.WriteLine("Invalid options!");
-                    exit = true;
+                    Console.WriteLine("Invalid choice!");
                     break;
             }
         }

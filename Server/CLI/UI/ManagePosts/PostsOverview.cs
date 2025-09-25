@@ -2,33 +2,34 @@ using System;
 using Entities;
 using RepositoryContracts;
 
-namespace CLI.UI.ManagePosts;
-
-public class PostsOverview
+namespace CLI.UI.ManagePosts
 {
-    private readonly IPostRepository postRepository;
-    public PostsOverview(IPostRepository postRepository)
+    public class PostsOverview
     {
-        this.postRepository = postRepository;
-    }
-    public async void ShowPostsOverview()
-    {
-        GetPostsAsync();
-    }
-    private async Task GetPostsAsync()
-    {
-        var posts = postRepository.GetManyAsync();
-        if (posts != null)
+        private readonly IPostRepository postRepository;
+        public PostsOverview(IPostRepository postRepository)
         {
-            foreach (Post post in posts)
+            this.postRepository = postRepository;
+        }
+        public async void ShowPostsOverview()
+        {
+            GetPostsAsync();
+        }
+        private async Task GetPostsAsync()
+        {
+            var posts = postRepository.GetMany();
+            if (posts != null)
             {
-                Console.WriteLine($"Post ID: {post.Id} and Title: {post.Title}");
+                foreach (Post post in posts)
+                {
+                    Console.WriteLine($"Post ID: {post.Id} and Title: {post.Title}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No post created!");
             }
         }
-        else
-        {
-            Console.WriteLine("No post created!");
-        }
-    }
     
+    }
 }

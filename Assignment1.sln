@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Server\Entities
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryContracts", "Server\RepositoryContracts\RepositoryContracts.csproj", "{9D20A41A-3B48-4C19-83CB-411E665B4E29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryRepository", "Server\InMemoryRepository\InMemoryRepository.csproj", "{C50ABF6D-D1E7-45D4-9722-FE24017BE91A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryRepositories", "Server\InMemoryRepository\InMemoryRepositories.csproj", "{C50ABF6D-D1E7-45D4-9722-FE24017BE91A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "Server\CLI\CLI.csproj", "{E25CAC8D-5ACF-4E30-9BCB-E3E5D058320F}"
 EndProject

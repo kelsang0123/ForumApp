@@ -1,9 +1,10 @@
-﻿namespace Entities;
-
-public class Comment
+﻿namespace Entities
 {
-    public int Id { get; set; }
-    public string Body { get; set; }
-    public int UserId { get; set; }
-    public int PostId { get; set; }
+    public class Comment
+    {
+        public int Id { get; set; }
+        public string Body { get; set; }
+        public int UserId { get; set; }
+        public int PostId { get; set; }
+    }
 }

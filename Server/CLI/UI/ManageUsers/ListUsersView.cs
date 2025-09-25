@@ -1,32 +1,32 @@
-using System;
 using Entities;
 using RepositoryContracts;
 
-namespace CLI.UI.ManageUsers;
-
-public class ListUsersView
+namespace CLI.UI.ManageUsers
 {
-    private readonly IUserRepository userRepository;
-  public ListUsersView(IUserRepository userRepository)
-  {
-    this.userRepository = userRepository;
-  }
-  public async void ShowUsersViewAsync()
+    public class ListUsersView
     {
-    UsersListAsync();
-    }
-  private async Task UsersListAsync(){
-    var users = userRepository.GetManyAsync();
-    if (users != null)
-    {
-      foreach (User user in users)
+        private readonly IUserRepository userRepository;
+      public ListUsersView(IUserRepository userRepository)
       {
-        Console.WriteLine($"{user.Username}");
+        this.userRepository = userRepository;
+      }
+      public async void ShowUsersViewAsync()
+        {
+        UsersListAsync();
+        }
+      private async Task UsersListAsync(){
+        var users = userRepository.GetMany();
+        if (users != null)
+        {
+          foreach (User user in users)
+          {
+            Console.WriteLine($"{user.Username}");
+          }
+        }
+        else
+        {
+          Console.WriteLine("No users in the list!");
+        }
       }
     }
-    else
-    {
-      Console.WriteLine("No users in the list!");
-    }
-  }
 }

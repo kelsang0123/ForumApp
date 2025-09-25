@@ -1,13 +1,14 @@
 using System;
 using RepositoryContracts;
 
-namespace CLI.UI.ManageComments;
-
-public class ListCommentsView
+namespace CLI.UI.ManageComments
 {
-    private readonly ICommentRepository commentRepository;
-    public ListCommentsView(ICommentRepository commentRepository)
+    public class ListCommentsView
     {
-        this.commentRepository = commentRepository;
+        private readonly ICommentRepository commentRepository;
+        public ListCommentsView(ICommentRepository commentRepository)
+        {
+            this.commentRepository = commentRepository;
+        }
     }
 }

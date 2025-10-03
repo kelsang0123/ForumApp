@@ -18,7 +18,7 @@ namespace FileRepositories
         public async Task<Post> AddAsync(Post post)
         {
             string postsAsJson = await File.ReadAllTextAsync(filePath);
-            List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson)!;
+            List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson) ?? [];
             int maxId = posts.Count > 0 ? posts.Max(p => p.Id) : 1;
             post.Id = maxId + 1;
             posts.Add(post);

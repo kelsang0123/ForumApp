@@ -1,3 +1,4 @@
+using System.Numerics;
 using Entities;
 using RepositoryContracts;
 namespace CLI.UI.ManagePosts
@@ -23,12 +24,12 @@ namespace CLI.UI.ManagePosts
         private async Task AddPostAsync(string title, string body, int userId)
         {
             Post post = new Post { Title = title, Body = body, UserId = userId };
-            Post createdPost = await postRepository.AddAsync(post);
+                Post createdPost = await postRepository.AddAsync(post);
             if (createdPost != null)
             {
                 Console.WriteLine($"Post is successfully created!, Title = {title}, Body = {body}, UserId = {userId}");
             }
-            else
+            else 
             {
                 Console.WriteLine("Fail to create a post!");
             }

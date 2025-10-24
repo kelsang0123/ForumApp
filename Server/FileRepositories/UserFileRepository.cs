@@ -19,7 +19,7 @@ namespace FileRepositories
         public async Task<User> AddAsync(User user)
         {
             string usersAsJson = await File.ReadAllTextAsync(filePath);
-            List<User> users = JsonSerializer.Deserialize<List<User>>(usersAsJson)!;
+            List<User> users = JsonSerializer.Deserialize<List<User>>(usersAsJson) ?? [];
             int maxId = users.Count > 0 ? users.Max(u => u.Id) : 1;
             user.Id = maxId + 1;
             users.Add(user);
